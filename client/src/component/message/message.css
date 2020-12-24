@@ -1,0 +1,64 @@
+
+ 
+    form {
+    max-width: 350px;
+    padding-bottom: 5px;   
+     box-shadow: 0px 3px 24px -8px rgba(0, 0, 0, 0.75);
+    }
+    
+    .name-field {
+    margin-bottom: 5px;
+    background-color: #0078d4;
+    padding-left: 15px;
+    color: white;
+    box-shadow: black;
+    }
+    
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background:#0078d4;
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+      width: 80px;
+      color:white;
+     margin-left: 70%;
+  
+      }
+    
+    .chatBox {
+        display:block;
+        max-width: 350px;   
+        height:250px;
+        background-color:white;
+        overflow:auto;
+    
+    
+    }
+    
+    h6 {
+    color: #2f72da;
+    text-align: center;
+        
+    }
+  
+      
+    span {
+    color: black;
+  max-width: 350px;
+    }
+    
+    
+    .chat {
+        border-radius: 10px;
+       margin-left: 5px;
+       padding-left: 15px;
+       width: max-content;
+       background-color: #5cadeb;
+       padding:5px;
+       margin-top: 5px;
+       row-gap: 5px;
+      }
+      
+    
