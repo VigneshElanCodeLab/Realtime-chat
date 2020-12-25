@@ -6,5 +6,10 @@
     height: auto;
     width: 350px;
     margin-left: 75%;
-    margin-right: 25%;
+    margin-right: 35%;
+}
+.chatButton{
+  
+    top:"660px";
+    right:"2%"
 }

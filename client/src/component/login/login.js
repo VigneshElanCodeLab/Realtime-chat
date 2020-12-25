@@ -31,7 +31,6 @@ this.setState({[event.target.name]:event.target.value})
   }
   handleDatabasecalls=()=>{
     axios.get('/RegistedUserDetails.json').then(response => {
-      const fetchedResults=[];
       for(let key in response.data){
     
       this.setState({results:response.data[key]})
@@ -67,9 +66,9 @@ this.setState({[event.target.name]:event.target.value})
          <LockOutlinedIcon />
        </Avatar>
        <Typography component="h1" variant="h5">
-         Sign in
+         Login
        </Typography>
-       <form    className="form" >
+       <form   className="form" >
          <TextField
            variant="outlined"
            margin="normal"
@@ -101,8 +100,8 @@ this.setState({[event.target.name]:event.target.value})
         fullWidth
         variant="contained"
         color="primary"
-    
-       onClick={this.submitted}>Login</Button>
+        onClick={this.submitted}  
+      >Login</Button>
        <br/><br/>
        <Grid container>
            
@@ -116,7 +115,6 @@ this.setState({[event.target.name]:event.target.value})
         </form>
       </div>
       </Container>
-
       </div>
     )
   }

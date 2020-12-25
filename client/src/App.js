@@ -27,7 +27,7 @@ function App() {
 
 }
 function ErrorComponent() {
-  return <div>oops...Error</div>
+  return <div > <p style={{textAlign:"center"}}>Oops...Error</p></div>
 }
 
 export default App

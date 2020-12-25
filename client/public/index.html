@@ -26,6 +26,26 @@
     -->
     <title>React App</title>
   </head>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAq8xzrvyOi2tWCod6ZUwO0aqxRqe7qOTQ",
+    authDomain: "chatbot-1c4f2.firebaseapp.com",
+    databaseURL: "https://chatbot-1c4f2.firebaseio.com",
+    projectId: "chatbot-1c4f2",
+    storageBucket: "chatbot-1c4f2.appspot.com",
+    messagingSenderId: "277330643667",
+    appId: "1:277330643667:web:57a44ebe3ab38d67076226"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

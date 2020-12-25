@@ -28,8 +28,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
-   
- 
     marginLeft:25,
     marginTop:50,
     marginBottom:10,
@@ -76,7 +74,6 @@ class Home extends Component {
     }
     componentDidMount(){
       axios.get('/RegistedUserDetails.json').then(response => {
-        const fetchedResults=[];
         for(let key in response.data){
       
         this.setState({results:response.data[key]})
@@ -158,7 +155,7 @@ class Home extends Component {
     
     render() {
       if(this.props.match.params.username===this.state.results.username ){
-        console.log(this.state.results.contactNumber)
+       // console.log(this.state.results.contactNumber)
       
       }
       let cartMessage =(
@@ -210,50 +207,48 @@ class Home extends Component {
 
                         <Typography variant="h6"  >
                             Home  
-                   
-                       
                         </Typography>
-                      
-                       
                         <Grid container justify="flex-end">
                         <Link>
-                        <Button  variant="h6" onclick={AuthService.logout()}> 
+                        <Button 
+                         variant="h6" 
+                         onclick={AuthService.logout()}> 
                         <p style={{color:"white"}}>Logout</p>
                         </Button>
                         </Link>
-                     
-                      
-                     
-                       
-                        <Button  onClick={this.handleOpen} > <p style={{color:"white"}}>Cart</p></Button>
+                        <Button  
+                        onClick={this.handleOpen} > 
+                        <p style={{color:"white"}}>Cart</p>
+                        </Button>
   
-</Grid>
-                         </Toolbar>
+                        </Grid>
+                     </Toolbar>
                 </AppBar>
 
-                <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
-        >
-       <Paper className="MuiPaper-root-modal">
-          <div >
+          <Modal
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+                open={this.state.open}
+                onClose={this.handleClose}
+                >
+          <Paper className="MuiPaper-root-modal">
+           <div >
             <h4 style={{textAlign:"center"}}>{this.props.match.params.username}  Your ordered items in cart</h4>
             <h5 style={{marginLeft:"10px"}}>Name: {this.props.match.params.username} </h5>
             <h5  style={{marginLeft:"10px"}}>Contact Number: {this.state.results.contactNumber}</h5>
           
-            <Typography variant="h6" id="modal-title" color="primary">
-                          
+            <Typography 
+            variant="h6"
+             id="modal-title" 
+             color="primary">             
             {cartMessage}       <br/>
-
             </Typography>
-          
-          </div>
+            </div>
           </Paper>
         </Modal>
         <div>
        <table style={{width:"100%",display:"flex-row",zomm:"90%"}} >
+         <tbody>
          <tr>
            <td>
         <Card className={classes.card}>
@@ -269,12 +264,19 @@ class Home extends Component {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
          Blue Shirt ₹ 500
         </Typography>
-        
-      
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        Expected to delivery within 2 days
+        </Typography>
       </CardContent>
-      
       <CardActions>
-        <Button size="small" variant="outlined"color="primary" onClick={()=>{this.onAddItemsInCart(1,"Blue Shirt ")}} >Add To Cart </Button>
+        <Button 
+        size="small" 
+        variant="outlined"
+        color="primary"
+         fullWidth 
+         onClick={()=>{this.onAddItemsInCart(1,"Blue Shirt ")}} >
+        Add To Cart
+        </Button>
    
       </CardActions>
     </Card>
@@ -290,15 +292,30 @@ class Home extends Component {
           image={Bs}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title}
+         color="textSecondary"
+          gutterBottom>
         Black Shirt ₹ 500
+        </Typography>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary" 
+        gutterBottom>
+        Expected to delivery within 2 days
         </Typography>
         
       
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary" onClick={()=>{this.onAddItemsInCart(2 ,"Black Shirt ")}} >Add To Cart</Button>
+        <Button 
+        size="small"
+         variant="outlined"
+         color="primary" 
+         fullWidth onClick={()=>{this.onAddItemsInCart(2 ,"Black Shirt ")}} >
+           Add To Cart
+           </Button>
       </CardActions>
     </Card>
     </td>
@@ -313,15 +330,27 @@ class Home extends Component {
           image={Rs}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title}
+         color="textSecondary" 
+         gutterBottom>
         Red Shirt ₹ 500
         </Typography>
-        
-      
+        <Typography 
+        className={classes.title} 
+        color="textSecondary"
+         gutterBottom>
+        Expected to delivery within 2 days
+        </Typography>
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary" onClick={()=>{this.onAddItemsInCart(3,"Red Shirt ")}}>Add To Cart</Button>
+        <Button 
+        size="small"
+         variant="outlined"color="primary"
+          fullWidth  onClick={()=>{this.onAddItemsInCart(3,"Red Shirt ")}}>
+            Add To Cart
+            </Button>
       </CardActions>
     </Card>
     </td> <td>
@@ -335,15 +364,31 @@ class Home extends Component {
           image={Gs}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary" 
+        gutterBottom>
         Green Shirt ₹ 500
+        </Typography>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary" 
+        gutterBottom>
+        Expected to delivery within 2 days
         </Typography>
         
       
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary" onClick={()=>{this.onAddItemsInCart(4,"Green Shirt ")}}>Add To Cart</Button>
+        <Button
+         size="small"
+          variant="outlined"
+          color="primary" 
+          fullWidth  
+          onClick={()=>{this.onAddItemsInCart(4,"Green Shirt ")}}>
+            Add To Cart
+            </Button>
       </CardActions>
     </Card>
     </td>
@@ -360,15 +405,27 @@ class Home extends Component {
           image={Green}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary"
+         gutterBottom>
         Green T - Shirt ₹ 300
         </Typography>
-        
-      
+        <Typography
+         className={classes.title} 
+         color="textSecondary" 
+         gutterBottom>
+        Expected to delivery within  <br/> 3 days
+        </Typography>
       </CardContent>
       
       <CardActions>
-        <Button size="small"  variant="outlined"color="primary"onClick={()=>{this.onAddItemsInCart(5,"Green T - Shirt ")}}>Add To Cart</Button>
+        <Button
+         size="small" 
+          variant="outlined"
+          color="primary" fullWidth onClick={()=>{this.onAddItemsInCart(5,"Green T - Shirt ")}}>
+            Add To Cart
+            </Button>
       </CardActions>
     </Card>
     </td>
@@ -383,15 +440,27 @@ class Home extends Component {
           image={Blue}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary"
+         gutterBottom>
         Blue T - Shirt ₹ 300
         </Typography>
-        
-      
+        <Typography 
+        className={classes.title} 
+        color="textSecondary" 
+        gutterBottom>
+        Expected to delivery within  <br/> 3 days
+        </Typography>
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary"  onClick={()=>{this.onAddItemsInCart(6,"Blue T - Shirt ")}}>Add To Cart</Button>
+        <Button 
+        size="small" 
+        variant="outlined"
+        color="primary" fullWidth  onClick={()=>{this.onAddItemsInCart(6,"Blue T - Shirt ")}}>
+          Add To Cart
+          </Button>
       </CardActions>
     </Card>
     </td>
@@ -406,14 +475,27 @@ class Home extends Component {
           image={Red}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-        Red T - Shirt ₹ 300        </Typography>
-        
-      
+        <Typography
+         className={classes.title} 
+         color="textSecondary" gutterBottom>
+        Red T - Shirt ₹ 300        
+        </Typography>
+        <Typography
+         className={classes.title}
+          color="textSecondary" 
+          gutterBottom>
+        Expected to delivery within  <br/> 3 days
+        </Typography>
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary" onClick={()=>{this.onAddItemsInCart(7,"Red T - Shirt ")}}>Add To Cart</Button>
+        <Button 
+        size="small" 
+        variant="outlined"
+        color="primary"  
+        fullWidth onClick={()=>{this.onAddItemsInCart(7,"Red T - Shirt ")}}>
+          Add To Cart
+          </Button>
       </CardActions>
     </Card>
     </td> <td>
@@ -427,27 +509,40 @@ class Home extends Component {
           image={Black}
           title="Contemplative Reptile"
         />
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary"
+         gutterBottom>
         Black T - Shirt ₹ 300
+        </Typography>
+        <Typography 
+        className={classes.title} 
+        color="textSecondary" 
+        gutterBottom>
+        Expected to delivery within <br/>
+         3 days
         </Typography>
         
       
       </CardContent>
       
       <CardActions>
-        <Button size="small" variant="outlined"color="primary"  onClick={()=>{this.onAddItemsInCart(8 ,"Black T - Shirt ")}}>Add To Cart</Button>
+        <Button
+         size="small" 
+         variant="outlined"
+         color="primary" 
+         fullWidth onClick={()=>{this.onAddItemsInCart(8 ,"Black T - Shirt ")}}>
+           Add To Cart
+           </Button>
       </CardActions>
     </Card>
     </td>
     </tr>
+    </tbody>
     </table>
     </div>
-        
-                 <ChatBox cartMessage={cartMessage} name={this.props.match.params.username}/>
-                      
-                        
-        
-            </div>
+     <ChatBox cartMessage={cartMessage} name={this.props.match.params.username}/>
+     </div>
         )
     }
 }
