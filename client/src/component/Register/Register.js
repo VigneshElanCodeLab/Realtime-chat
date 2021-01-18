@@ -63,8 +63,6 @@ this.setState({[event.target.name]:event.target.value})
       <div>
         <Container>
          <div  className="paper">
-       
-    
        <Typography component="h1" variant="h5">
       Register
        </Typography>
@@ -105,15 +103,13 @@ this.setState({[event.target.name]:event.target.value})
            autoFocus   
            type="number"   
               />
-<div style={{color:"red"}}> {this.state.contactNumberError}</div>
+        <div style={{color:"red"}}> {this.state.contactNumberError}</div>
         <br/>
         <br/>
        <Button 
-       
         fullWidth
         variant="contained"
         color="primary"
-       
        >Register</Button>
        <br/><br/>
        <Grid container>
@@ -121,10 +117,6 @@ this.setState({[event.target.name]:event.target.value})
               <Link to="/login">
               <Button> login</Button>
               </Link>
-            </Grid>
-            <br/>
-            <Grid item>
-              
             </Grid>
           </Grid>
         </form>

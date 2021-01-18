@@ -8,16 +8,15 @@ import { InputBase     } from '@material-ui/core';
 const socket = io.connect('http://localhost:4000')
 
 function App(props) {
-    const [state, setState] = useState({ message: '', name: '' ,cartMessage:props.cartMessage})
-  const [chat, setChat] = useState([])
+    const [state, setState] = useState({ message: '', name: props.name ,cartMessage:props.cartMessage})
+    const [chat, setChat] = useState([])
 
-  const messagesEndRef = useRef(null)
+    const messagesEndRef = useRef(null)
  
 
 
   useEffect(() => {
-    messagesEndRef.current.scrollTop =messagesEndRef.current.scrollHeight
-
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
     socket.on('message', ({ name, message }) => {
       setChat([...chat, { name, message }])
     })
@@ -37,41 +36,38 @@ function App(props) {
   }
  
   const renderChat = () => {
- 
     return chat.map(({ name, message }, index) => (
      
- <div key={index}>
-  {state.cartMessage}
-      <div className="chat" >
-     <div style={{color:"#fff"}}> {name}</div>
+      <div key={index}>
+         {state.cartMessage}
+        <div className="chat" >
+        <div style={{color:"#fff"}}> {name}</div>
         {message}      
         </div>
+   
       </div>))
     }
 
   return (
     <div >
-     
       <form onSubmit={onMessageSubmit} >
     
         <div  className="name-field">
-          
+
           <InputBase 
             name="name"
             onChange={event => onTextChange(event)}
-            value={state.name}
+            value={props.name}
             placeholder="Name"
            required
+           readOnly
           />
         </div>
         <div>
-        <div   className="chatBox">
-          {state.cartMessage} 
-
+        <div className="chatBox">
+        {state.cartMessage} 
         {renderChat()}
-      </div>
-      <div ref={messagesEndRef} id={'messagesEndRef'} >
-
+        <div ref={messagesEndRef} />
       </div>
       </div>
     <br/>
@@ -87,12 +83,11 @@ function App(props) {
             required
           />
         </div>
-        <button >
-      Send
+        <button  
+        color="primary"  >
+        Send
       </button>
       </form>
-    
-
     </div>
   )
 }

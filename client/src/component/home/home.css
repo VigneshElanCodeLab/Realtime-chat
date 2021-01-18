@@ -40,3 +40,7 @@ h6 {
     color:white;
     float:right
 }
+.MuiGrid-spacing-xs-2 {
+     width: calc(0 + 0px);
+     margin: 0px
+}
